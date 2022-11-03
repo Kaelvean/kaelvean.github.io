@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"
+        type="application/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为「捡回珍珠计划」助力</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            $.ajax({
+                url: "http://irm.sunlove-iread.com/index.php?s=Index/Activity/setAll",
+                type: "POST",
+                data: "id=1630&aid=23",
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+                success: function (res) {
+                    if (res.status == 1) {
+                        window.location.reload();
+                        document.getElementById("haveYou").innerHTML = "错误出现，请稍后重试";
+                    } else {
+                        console.log(res);
+
+                        document.getElementById("haveYou").innerHTML = res.msg;
+                    }
+
+                    $.ajax({
+                        url: "http://irm.sunlove-iread.com/index.php?s=Index/Activity/getType&id=23",
+                        type: "GET",
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+                        success: function (res) {
+                            if (res.status == 1) {
+                                console.log(res);
+                            }
+                            else {
+                                console.log(res);
+                                console.log(res.body.list[9].list[4].vote);
+                                document.getElementById("voteNum").innerHTML = res.body.list[9].list[4].vote;
+                            }
+
+                        }
+
+                    })
+
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <h1>为「捡回珍珠计划」助力</h1>
+    <h3 id="haveYou">有你真好！</h3>
+    <p>当前票数：<span id="voteNum">获取中...</span></p>
+</body>
+
+</html>
