@@ -1,58 +1,82 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"
-        type="application/javascript"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>为「捡回珍珠计划」助力</title>
-    <script type="text/javascript">
-        window.onload = function () {
-            $.ajax({
-                url: "http://irm.sunlove-iread.com/index.php?s=Index/Activity/setAll",
-                type: "POST",
-                data: "id=1630&aid=23",
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-                success: function (res) {
-                    if (res.status == 1) {
-                        window.location.reload();
-                        document.getElementById("haveYou").innerHTML = "错误出现，请稍后重试";
-                    } else {
-                        console.log(res);
-
-                        document.getElementById("haveYou").innerHTML = res.msg;
-                    }
-
-                    $.ajax({
-                        url: "http://irm.sunlove-iread.com/index.php?s=Index/Activity/getType&id=23",
-                        type: "GET",
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-                        success: function (res) {
-                            if (res.status == 1) {
-                                console.log(res);
-                            }
-                            else {
-                                console.log(res);
-                                console.log(res.body.list[9].list[4].vote);
-                                document.getElementById("voteNum").innerHTML = res.body.list[9].list[4].vote;
-                            }
-
-                        }
-
-                    })
-
-                }
-            })
+    <title>IT WORKS!!!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-flow: row wrap;
+            align-content: center;
+            -webkit-box-pack: center;
+            justify-content: center;
         }
-    </script>
+        
+        div {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .effect {
+            margin: 100px 0 0 0;
+            background: #fff;
+            position: relative;
+            font: 900 30vmin 'Consolas';
+            letter-spacing: 5vmin;
+            text-shadow: 2px -1px 0 #000, 4px -2px 0 #0a0a0a, 6px -3px 0 #0f0f0f, 8px -4px 0 #141414, 10px -5px 0 #1a1a1a, 12px -6px 0 #1f1f1f, 14px -7px 0 #242424, 16px -8px 0 #292929;
+        }
+        
+        .effect::before {
+            background-color: #06F;
+            background-image: radial-gradient(closest-side at 50% 50%, #ffc107 100%, rgba(0, 0, 0, 0)), radial-gradient(closest-side at 50% 50%, #EF4141 100%, rgba(0, 0, 0, 0));
+            background-repeat: repeat-x;
+            background-size: 40vmin 40vmin;
+            background-position: -100vmin 20vmin, 100vmin -25vmin;
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: screen;
+            -webkit-animation: moving 10s linear infinite both;
+            animation: moving 10s linear infinite both;
+            display: block;
+            position: absolute;
+            content: "";
+        }
+        
+        @-webkit-keyframes moving {
+            to {
+                background-position: 100vmin 20vmin, -100vmin -25vmin;
+            }
+        }
+        
+        @keyframes moving {
+            to {
+                background-position: 100vmin 20vmin, -100vmin -25vmin;
+            }
+        }
+        
+        .text {
+            padding: 0 1vmin;
+            font: 400 5vmin "Courgette";
+        }
+        
+        .text span {
+            font-weight: bold;
+            color: #EF4141;
+            font-size: 10vmin;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>为「捡回珍珠计划」助力</h1>
-    <h3 id="haveYou">有你真好！</h3>
-    <p>当前票数：<span id="voteNum">获取中...</span></p>
+    <div class="effect">欢迎</div>
+    <div class="text"><span>~PONG!!!</span><br>!!!@#$H*(&^AG%$324LLL</div>
 </body>
 
 </html>
